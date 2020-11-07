@@ -60,7 +60,7 @@ contract Posudba {
           require(posuditelj[_id].posudjeno==false,"vec posudjeno");
          require(posuditelj[_id].adresaPosuditelja!=_Posudjivac,"posuđivać i Posudjivac ne mogu biti ist");
          
-         require(msg.value==posuditelj[_id].treba,"nevaljani iznos");
+         require(msg.value==(posuditelj[_id].treba*1000000000000000000),"nevaljani iznos");
          posuditelj[_id].adresaPosuditelja.transfer(msg.value);
          posuditelj[_id].posudjeno=true;
          posudjivac[_posid].posudio.push(_id);
